@@ -21,7 +21,7 @@ Compared with the initially approved version, there are three changes to the mod
 
 2.	The submitted model is a new implementation built upon the Oscar/Fritz credit library platform. Compared with the old pricing template, which is based on old credit library SH3, the new model is computationally more efficient. 
 
-3.	The sensitivity computation via Weighted Monte Carlo (WMC) approximation is replaced by a direct full Monte Carlo simulation of the perturbed scenario. For the sensitivities, such as credit spread sensitivity, default sensitivity, and recovery rate sensitivity, the credit of each obligor is perturbed. Using the MC valuation model (see https://finpricing.com/lib/EqCallable.html), it is very time consuming to revalue the perturbed scenarios when there is a large number of obligors in the collateral pool. In SH3, a WMC approximation is adopted so that a MC re-valuation for each perturbed scenario is not necessary. Only the path weight of each MC scenario is re-calculated with the perturbed risk factors [3]. In the new Oscar/Fritz library, the MC simulation is so efficient that a full MC simulation re-valuation with the perturbed risk factors becomes possible [4]. Hence the WMC approximation is no longer necessary. 
+3.	The sensitivity computation via Weighted Monte Carlo (WMC) approximation is replaced by a direct full Monte Carlo simulation of the perturbed scenario. For the sensitivities, such as credit spread sensitivity, default sensitivity, and recovery rate sensitivity, the credit of each obligor is perturbed. Using the MC valuation model, it is very time consuming to revalue the perturbed scenarios when there is a large number of obligors in the collateral pool. In SH3, a WMC approximation is adopted so that a MC re-valuation for each perturbed scenario is not necessary. Only the path weight of each MC scenario is re-calculated with the perturbed risk factors [3]. In the new Oscar/Fritz library, the MC simulation is so efficient that a full MC simulation re-valuation with the perturbed risk factors becomes possible [4]. Hence the WMC approximation is no longer necessary. 
 
 Assume the underlying collateral pool is a set of obligors, , in which each obligor has maturity , a recovery rate , and a notional amount .  A VMS-CDO with this collateral pool has a maturity   and a substitution termination date . 
 
@@ -95,4 +95,7 @@ The model relies on the MC simulation. Hence the existing restriction and limita
 GRMMR QA is fully aware that the current modelling is not ideal and better models will be developed as the market evolves and the research progresses. Hence the next re-review date is set to be one year later, which is June 29, 2007.
 
 
+Reference:
+
+https://finpricing.com/aboutus.html
 
